@@ -13,7 +13,7 @@
       {{ letter }}
     </router-link>
   </div>
-  <!-- <pre>{{ ingredients }}</pre> -->
+  <pre>{{ ingredients }} a</pre>
     </div>
 </template>
 <script setup>
