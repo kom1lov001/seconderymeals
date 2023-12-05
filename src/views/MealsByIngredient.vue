@@ -1,6 +1,6 @@
 <template>
   <div>
-    meal list
+    Search By Ingredients
   </div>
 </template>
 <script setup>

@@ -1,7 +1,10 @@
 <template>
-<router-view></router-view>
+  <div>
+    Search By Name
+  </div>
 </template>
 <script setup>
+
 </script>
 <style>
   
