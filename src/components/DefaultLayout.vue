@@ -1,14 +1,13 @@
-<template>
-   <div class="bg-gray-200">
+ <template>
+   <div class="w-full h-screen bg-gray-200">
     <Navbar></Navbar>
     <main>
       <router-view></router-view>
     </main>
-  </div>
+  </div>  
 </template>
 <script setup>
-import Navbar from "../components/Navbar.vue";
-
+import Navbar from "../components/Navbar.vue"
 </script>
 <style>
     
