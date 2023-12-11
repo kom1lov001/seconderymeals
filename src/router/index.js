@@ -5,6 +5,7 @@ import MealsByLetter from '../views/MealsByLetter.vue'
 import MealsByIngredient from '../views/MealsByIngredient.vue'
 import DefaultLayout from '../components/DefaultLayout.vue'
 import GuestLayout from '../components/GuestLayout.vue'
+import Login from '../views/Login.vue'
 let routes = [
   {
   path:"/" ,
@@ -34,8 +35,12 @@ let routes = [
         path:"/guest",
         component:GuestLayout
       }
-  ]
+  ],
 },
+{
+  path:'/login',
+  component:Login
+}
 ]
 
 let router = createRouter({

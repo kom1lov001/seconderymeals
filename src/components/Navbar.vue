@@ -9,6 +9,7 @@
           <router-link class="hover:bg-purple-100 items-center inline-flex px-3 h-full" :to="{ name:'byName' }">Meals By Name</router-link>
           <router-link class="hover:bg-purple-100 items-center inline-flex px-3 h-full" :to="{ name:'byIngredient' }">Meals By Ingredients</router-link>
           <router-link class="hover:bg-purple-100 items-center inline-flex px-3 h-full" to="/guest">Guest</router-link>
+          <router-link class="hover:bg-purple-100 items-center inline-flex px-3 h-full" to="/login">Login</router-link>
          </div>
     </header>
    </div>
