@@ -1,21 +1,15 @@
-<template >
-    <div class="flex p-8 justify-center flex-col">
-    </div>
+<template>
+  <!-- <div class="flex p-8 justify-center flex-col"></div> -->
 </template>
 <script setup>
-import { onMounted,ref } from "vue"
-import axiosClient from '../axiosClient'
+import { onMounted, ref } from "vue";
+import axiosClient from "../axiosClient";
 
-let ingredients = ref([])
+let ingredients = ref([]);
 onMounted(async () => {
- let response = await axiosClient.get('/list.php?i=list')
+  let response = await axiosClient.get("/list.php?i=list");
   console.log(response.data);
-  ingredients.value = response.data
-})
-
-
-
+  ingredients.value = response.data;
+});
 </script>
-<style>
-    
-</style>
+<style></style>

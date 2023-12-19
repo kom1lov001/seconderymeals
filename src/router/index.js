@@ -6,6 +6,7 @@ import MealsByIngredient from "../views/MealsByIngredient.vue";
 import DefaultLayout from "../components/DefaultLayout.vue";
 import GuestLayout from "../components/GuestLayout.vue";
 import MealDetails from "../views/MealDetails.vue";
+import LoginPage from "../views/LoginPage.vue";
 
 let routes = [
   {
@@ -32,12 +33,17 @@ let routes = [
         name: "byIngredient",
         component: MealsByIngredient,
       },
+      {
+        path: "/meal/:id?",
+        name: "mealbyid",
+        component: MealDetails,
+      },
     ],
   },
   {
-    path: "/meal/:id",
-    name: "mealbyid",
-    component: MealDetails,
+    path: "/:login?",
+    name: "login-page",
+    component: LoginPage,
   },
   {
     path: "/guest",

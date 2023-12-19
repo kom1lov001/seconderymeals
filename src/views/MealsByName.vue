@@ -1,15 +1,15 @@
 <template>
-  <div class="grid p-8">
+  <div class="grid p-8 pb-0 h-full bg-gray-800 relative top-5">
     <input
       type="text"
       v-model="keyword"
-      @change="searchMeals"
+      @change="searchMeal"
       placeholder="Search for Meals"
-      class="w-full p-4 text-lg border-2 bg-gray-100 border-gray-700 border-none rounded-md outline-none placeholder:text-lg"
+      class="w-full p-4 text-lg text-gray-300 border-2 bg-gray-500 border-gray-700 border-none rounded-md outline-none placeholder:text-lg placeholder:text-gray-300"
     />
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
       <div
-        class="hover:shadow-2xl transition-all duration-500 shadow-lg grid p-4 rounded-xl bg-white"
+        class="hover:shadow-lg text-gray-200 transition-all duration-500 hover:shadow-white grid p-4 rounded-xl bg-gray-700"
         v-for="meal of meals"
         :key="meal.idMeal"
       >
@@ -25,7 +25,6 @@
             {{ meal.strMeal }}
           </h3>
           <p class="text-ellipsis overflow-hidden">
-            <!-- {{ meal.strInstructions }} -->
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
             quos, amet animi eligendi magnam officiis recusandae!
           </p>
@@ -39,13 +38,12 @@
           >
           <router-link
             class="text-blue-700 px-3 py-2 ml-3 transition-all duration-500 hover:shadow-md rounded-md border border-purple-400 hover:bg-purple-600 hover:text-white"
-            :to="{ name: 'mealbyid', params: { id: meal.idMeal } }"
+            :to="{ name: 'mealbyid', params: { id: meal.strMeal } }"
             >View</router-link
           >
         </div>
       </div>
     </div>
-    <!-- <pre>{{ meals }}</pre> -->
   </div>
 </template>
 
@@ -53,18 +51,25 @@
 import { ref, computed, onMounted } from "vue";
 import store from "../store";
 let keyword = ref("");
-let meals = computed(() => store.state.searchedMeals);
+let meals = computed(() => store.state.searchmeals);
 import { useRoute } from "vue-router";
 
 let route = useRoute();
-function searchMeals() {
+
+// function searchMeal() {
+//   store.dispatch("searchMeals", keyword.value);
+// }
+function searchMeal() {
   store.dispatch("searchMeals", keyword.value);
 }
+// function searchMeals() {
+//   store.dispatch("searchMeals", keyword.value);
+// }
 
 onMounted(() => {
-  keyword.value = route.params.meal;
+  keyword.value = route.params.name;
   if (keyword.value) {
-    searchMeals();
+    searchMeal();
   }
 });
 </script>
