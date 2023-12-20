@@ -4,28 +4,19 @@
 <script setup></script>
 <style></style> -->
 <script setup>
-import { ref, computed } from "vue";
-
-const author = ref({
-  name: "John Doe",
-  books: [
-    "Vue 2 - Advanced Guide",
-    "Vue 3 - Basic Guide",
-    "Vue 4 - The Mystery",
-  ],
-});
-
-let publishedBooksMessage = computed(() => {
-  let res = author.value;
-  return res.books.length > 0;
-});
+import { ref, reactive } from "vue";
+import Ingredient from "../views/Ingredient.vue";
+let foodname = ref("Defender");
+let foodCost = ref(500);
 </script>
 
 <template>
-  <div class="text-gray-400">
-    <p>Has published books:</p>
-
-    <span v-if="publishedBooksMessage"> Yes </span>
-    <span v-else> No </span>
+  <div class="bg-gray-800 h-full">
+    <h1>Here is a child component!</h1>
+    <Ingredient
+      :foodname="foodname"
+      :food-cost="foodCost"
+      counter="0"
+    ></Ingredient>
   </div>
 </template>

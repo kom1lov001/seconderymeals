@@ -1,82 +1,91 @@
 <template>
-  <el-form
-    ref="ruleFormRef"
-    :model="ruleForm"
-    :rules="rules"
-    label-width="120px"
-    class="demo-ruleForm p-16"
-    :size="formSize"
-    status-icon
-  >
-    <el-form-item label="Activity name" prop="name">
-      <el-input v-model="ruleForm.name" />
-    </el-form-item>
-    <el-form-item label="Activity zone" prop="region">
-      <el-select v-model="ruleForm.region" placeholder="Activity zone">
-        <el-option label="Zone one" value="shanghai" />
-        <el-option label="Zone two" value="beijing" />
-      </el-select>
-    </el-form-item>
-    <el-form-item label="Activity count" prop="count">
-      <el-select-v2
-        v-model="ruleForm.count"
-        placeholder="Activity count"
-        :options="options"
-      />
-    </el-form-item>
-    <el-form-item label="Activity time" required>
-      <el-col :span="11">
-        <el-form-item prop="date1">
-          <el-date-picker
-            v-model="ruleForm.date1"
-            type="date"
-            label="Pick a date"
-            placeholder="Pick a date"
-            style="width: 100%"
-          />
-        </el-form-item>
-      </el-col>
-      <el-col class="text-center" :span="2">
-        <span class="text-gray-500">-</span>
-      </el-col>
-      <el-col :span="11">
-        <el-form-item prop="date2">
-          <el-time-picker
-            v-model="ruleForm.date2"
-            label="Pick a time"
-            placeholder="Pick a time"
-            style="width: 100%"
-          />
-        </el-form-item>
-      </el-col>
-    </el-form-item>
-    <el-form-item label="Instant delivery" prop="delivery">
-      <el-switch v-model="ruleForm.delivery" />
-    </el-form-item>
-    <el-form-item label="Activity type" prop="type">
-      <el-checkbox-group v-model="ruleForm.type">
-        <el-checkbox label="Online activities" name="type" />
-        <el-checkbox label="Promotion activities" name="type" />
-        <el-checkbox label="Offline activities" name="type" />
-        <el-checkbox label="Simple brand exposure" name="type" />
-      </el-checkbox-group>
-    </el-form-item>
-    <el-form-item label="Resources" prop="resource">
-      <el-radio-group v-model="ruleForm.resource">
-        <el-radio label="Sponsorship" />
-        <el-radio label="Venue" />
-      </el-radio-group>
-    </el-form-item>
-    <el-form-item label="Activity form" prop="desc">
-      <el-input v-model="ruleForm.desc" type="textarea" />
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="submitForm(ruleFormRef)">
-        Create
-      </el-button>
-      <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
-    </el-form-item>
-  </el-form>
+  <div class="items_label">
+    <el-form
+      ref="ruleFormRef"
+      :model="ruleForm"
+      :rules="rules"
+      label-width="120px"
+      class="demo-ruleForm p-16 !form-change"
+      :size="formSize"
+      status-icon
+    >
+      <el-form-item class="custom-label" label="Activity name" prop="name">
+        <el-input v-model="ruleForm.name" />
+      </el-form-item>
+      <el-form-item
+        style="color: white !important"
+        label="Activity zone"
+        prop="region"
+      >
+        <el-select v-model="ruleForm.region" placeholder="Activity zone">
+          <el-option label="Zone one" value="shanghai" />
+          <el-option label="Zone two" value="beijing" />
+        </el-select>
+      </el-form-item>
+      <el-form-item label="Activity count" prop="count">
+        <el-select-v2
+          v-model="ruleForm.count"
+          placeholder="Activity count"
+          :options="options"
+        />
+      </el-form-item>
+      <el-form-item label="Activity time" required>
+        <el-col :span="11">
+          <el-form-item prop="date1">
+            <el-date-picker
+              v-model="ruleForm.date1"
+              type="date"
+              label="Pick a date"
+              placeholder="Pick a date"
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col class="text-center" :span="2">
+          <span class="text-gray-500">-</span>
+        </el-col>
+        <el-col :span="11">
+          <el-form-item prop="date2">
+            <el-time-picker
+              v-model="ruleForm.date2"
+              label="Pick a time"
+              placeholder="Pick a time"
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+      </el-form-item>
+      <el-form-item label="Instant delivery" prop="delivery">
+        <el-switch v-model="ruleForm.delivery" />
+      </el-form-item>
+      <el-form-item label="Activity type" prop="type">
+        <el-checkbox-group v-model="ruleForm.type">
+          <el-checkbox label="Online activities" name="type" />
+          <el-checkbox label="Promotion activities" name="type" />
+          <el-checkbox label="Offline activities" name="type" />
+          <el-checkbox label="Simple brand exposure" name="type" />
+        </el-checkbox-group>
+      </el-form-item>
+      <el-form-item label="Resources" prop="resource">
+        <el-radio-group v-model="ruleForm.resource">
+          <el-radio label="Sponsorship" />
+          <el-radio label="Venue" />
+        </el-radio-group>
+      </el-form-item>
+      <el-form-item label="Activity form" prop="desc">
+        <el-input v-model="ruleForm.desc" type="textarea" />
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="submitForm(ruleFormRef)">
+          Create
+        </el-button>
+        <el-button class="text-red-400" @click="resetForm(ruleFormRef)"
+          >Reset</el-button
+        >
+      </el-form-item>
+    </el-form>
+    <Guestlayout />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -98,7 +107,7 @@ interface RuleForm {
 const formSize = ref("default");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive<RuleForm>({
-  name: "hello",
+  name: "Defender",
   region: "",
   count: "",
   date1: "",
@@ -185,3 +194,18 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
   label: `${idx + 1}`,
 }));
 </script>
+<style lang="scss" scoped>
+$colorWhite: white; // Change this line to set the desired red color
+
+.items_label .el-form-item__label {
+  color: $colorWhite !important;
+}
+
+.el-form {
+  label {
+    color: $colorWhite !important;
+
+    // Add a more specific selector for the "Activity zone" label
+  }
+}
+</style>

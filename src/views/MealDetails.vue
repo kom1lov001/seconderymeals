@@ -1,40 +1,80 @@
 <template>
-  <div class="h-full bg-gray-800">
+  <!-- <div class="h-full bg-gray-800 flex items-center justify-center"> -->
+
+  <div class="">
     <div
-      class="w-[900px] mx-auto items-center grid grid-cols-2 text-center p-5 rounded-2xl relative top-36 bg-gray-700 shadow-2xl gap-8"
+      class="mx-auto grid grid-cols-1 md:grid-cols-3 p-4 gap-2 relative top-8 rounded-xl"
     >
-      <div class="text-left">
-        <h1 class="text-4xl text-gray-300 font-bold mb-5">
-          {{ meal.strMeal }}
-        </h1>
-        <p class="p-2 text-ellipsis overflow-hidden text-gray-200">
-          <!-- {{ meal.strInstructions }} -->
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse quae
-          suscipit molestiae facilis officia laudantium modi consectetur
-          officiis id! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        </p>
-        <router-link
-          to="/"
-          class="px-3 absolute bottom-4 py-2 text-red-700 text-center transition-all duration-500 hover:shadow-md rounded-md border border-red-400 hover:bg-red-600 hover:text-white"
-          >Back to</router-link
-        >
-      </div>
-      <div class="rounded-2xl">
+      <div>
         <img
           :src="meal.strMealThumb"
-          class="rounded-e-2xl shadow-xl w-full"
-          :alt="meal.strMeal"
+          class="rounded-md min-w-96 w-auto"
+          alt="str Meal Thumb"
         />
       </div>
+      <div class="relative col-span-2">
+        <h1 class="font-bold text-[36px] text-gray-300">
+          {{ meal.strMeal }}
+        </h1>
+        <p class="leading-none text-gray-300">
+          {{ meal.strInstructions }}
+        </p>
+        <div class="box-border">
+          <div class="grid grid-cols-3">
+            <h1><b>Category</b>:{{ meal.strCategory }}</h1>
+            <h1><b>Area</b>:{{ meal.strArea }}</h1>
+            <h1 class="flex relative right-6">
+              <b>Tags</b>:{{ meal.strTags }}
+            </h1>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <div>
+              <h2 class="font-semibold text-2xl">Ingredient</h2>
+              <ul>
+                <template v-for="(el, ind) of new Array(20)">
+                  <li v-if="meal[`strIngredient${ind + 1}`]">
+                    {{ ind + 1 }} {{ meal[`strIngredient${ind + 1}`] }}
+                  </li>
+                </template>
+              </ul>
+            </div>
+            <div>
+              <h2 class="font-semibold text-2xl">Measures</h2>
+              <ul>
+                <template v-for="(el, ind) of new Array(20)">
+                  <li>{{ meal[`strMeasure${ind + 1}`] }}</li>
+                </template>
+              </ul>
+            </div>
+          </div>
+          <!-- <pre>{{ meal }}</pre> -->
+          <div class="mt-5 flex flex-row">
+            <YoutubeComponent :href="meal.strYoutube" class=""
+              >Youtube</YoutubeComponent
+            >
+            <a
+              :href="meal.strSource"
+              target="_blank"
+              class="rounded-md py-2 px-4 bg-red-400"
+              >View Original Source
+            </a>
+          </div>
+        </div>
+        <!-- <pre>{{ meal }}</pre> -->
+        <!-- <router-link to="/by-name" class="px-3 py-2 bg-blue-500 rounded">
+        By Name
+      </router-link> -->
+      </div>
     </div>
-    <!-- <pre> {{ meal }}</pre> -->
   </div>
+  <!-- </div> -->
 </template>
 <script setup>
 // import axios from "axios";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import axiosClient from "../axiosClient";
+// import YoutubeComponent from "../components/YoutubeComponent.vue";
 
 let route = useRoute();
 let meal = ref({});
@@ -42,6 +82,7 @@ let meal = ref({});
 onMounted(() => {
   axiosClient.get(`lookup.php?i=${route.params.id}`).then(({ data }) => {
     meal.value = data.meals[0] || {};
+    console.log(meal);
   });
 });
 </script>

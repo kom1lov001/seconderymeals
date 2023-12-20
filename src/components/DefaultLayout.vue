@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full bg-gray-800">
+  <div class="w-full !fullHeight bg-gray-800">
     <Navbar></Navbar>
     <main>
       <router-view></router-view>
@@ -9,4 +9,8 @@
 <script setup>
 import Navbar from "../components/Navbar.vue";
 </script>
-<style></style>
+<style>
+.fullHeight {
+  height: 100vh !important;
+}
+</style>
