@@ -26,7 +26,7 @@
           :to="{ name: 'byIngredient' }"
           >Meals By Ingredients</router-link
         >
-        <router-link
+        <!-- <router-link
           class="hover:bg-gray-700 items-center inline-flex px-3 h-full"
           to="/guest"
           >Guest</router-link
@@ -35,7 +35,7 @@
           class="hover:bg-gray-700 items-center inline-flex px-3 h-full"
           to="/login"
           >Login</router-link
-        >
+        > -->
       </div>
     </header>
   </div>

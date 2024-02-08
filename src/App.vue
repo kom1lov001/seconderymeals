@@ -4,6 +4,6 @@
   </div>
 </template>
 <script setup>
-import YoutubeComponent from "./components/YoutubeComponent.vue";
+// import YoutubeComponent from "./components/YoutubeComponent.vue";
 </script>
 <style scoped></style>

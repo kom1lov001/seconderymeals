@@ -38,7 +38,7 @@
           >
           <router-link
             class="text-blue-700 px-3 py-2 ml-3 transition-all duration-500 hover:shadow-md rounded-md border border-purple-400 hover:bg-purple-600 hover:text-white"
-            :to="{ name: 'mealbyid', params: { id: meal.strMeal } }"
+            :to="{ name: 'mealbyid', params: { id: meal.idMeal } }"
             >View</router-link
           >
         </div>
@@ -56,20 +56,15 @@ import { useRoute } from "vue-router";
 
 let route = useRoute();
 
-// function searchMeal() {
-//   store.dispatch("searchMeals", keyword.value);
-// }
 function searchMeal() {
   store.dispatch("searchMeals", keyword.value);
 }
-// function searchMeals() {
-//   store.dispatch("searchMeals", keyword.value);
-// }
 
 onMounted(() => {
   keyword.value = route.params.name;
   if (keyword.value) {
     searchMeal();
   }
+  console.log(meals.idMeal);
 });
 </script>

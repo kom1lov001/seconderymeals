@@ -8,12 +8,12 @@
     >
   </div> -->
   <!-- <div class="container"> -->
-  <a :href="href" target="_blank" class="py-2 px-4 bg-red-400 rounded-md">
+  <a :href="href" target="_blank" class="py-2 px-4 bg-red-500 rounded-md">
     <slot></slot>
   </a>
 </template>
 <script setup>
-let props = defineProps(["href"]);
+// let props = defineProps(["href"]);
 // let props = defineProps({
 //   href: String,
 // });
