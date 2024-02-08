@@ -44,15 +44,15 @@ let routes = [
         name: "Ingredient",
         component: Ingredient,
       },
-      {
-        path: "/:login?",
-        name: "login-page",
-        component: LoginPage,
-      },
-      {
-        path: "/guest",
-        component: GuestLayout,
-      },
+      // {
+      //   path: "/:login?",
+      //   name: "login-page",
+      //   component: LoginPage,
+      // },
+      // {
+      //   path: "/guest",
+      //   component: GuestLayout,
+      // },
     ],
   },
 ];

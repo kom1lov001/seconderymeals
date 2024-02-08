@@ -10,7 +10,7 @@
           >Home</router-link
         >
       </div>
-      <div>
+      <div class="flex gap-[30px]">
         <router-link
           class="hover:bg-gray-700 items-center inline-flex px-3 h-full"
           :to="{ name: 'byLetter' }"

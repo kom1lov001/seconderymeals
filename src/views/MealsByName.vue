@@ -5,7 +5,7 @@
       v-model="keyword"
       @change="searchMeal"
       placeholder="Search for Meals"
-      class="w-full p-4 text-lg text-gray-300 border-2 bg-gray-500 border-gray-700 border-none rounded-md outline-none placeholder:text-lg placeholder:text-gray-300"
+      class="w-[1000px] p-4 text-lg text-gray-300 border-2 bg-gray-500 border-gray-700 border-none rounded-md outline-none placeholder:text-lg placeholder:text-gray-300 mx-auto"
     />
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
       <div

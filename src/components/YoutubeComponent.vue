@@ -14,8 +14,8 @@
 </template>
 <script setup>
 // let props = defineProps(["href"]);
-// let props = defineProps({
-//   href: String,
-// });
+let props = defineProps({
+  href: String,
+});
 </script>
 <style></style>
